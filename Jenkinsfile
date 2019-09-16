@@ -8,7 +8,7 @@ EmailTemplate = "groovy-html-simple.template"
 
 // This closure is generalized to send notifications (slack msgs and/or emails) for the various build
 // result states.
-def SendNotifications = { BuildStatus ->
+SendNotifications = { BuildStatus ->
     def Subject = "Job ${BuildStatus} ${env.JOB_NAME} [${currentBuild.displayName}]"
     def Details = """<p>Jenkins Build Results Job:${env.JOB_NAME} Build:[${env.BUILD_NUMBER}]:</p>
     <p><a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>Web Page Results</p>"""
