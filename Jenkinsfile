@@ -67,7 +67,7 @@ pipeline {
     pollSCM 'H/2 * * * *'
   }
   environment {
-    CiGitRepoPath = 'https://github.com/techwiz52/MSBuildTest.git'
+    CiGitRepoPath = 'https://github.com/techwiz85/MSBuildTest.git'
     CiBuildDir    = "C:/Development/MSBuildTest/"
     CiSlnFile     = "MSBuildTest.sln"
     CiBuildCmd    = "msbuild ${CiSlnFile} /t:build /p:Configuration=release /m"
@@ -86,7 +86,7 @@ pipeline {
     stage('Sync') {
       steps { script {
         // Requires Git Plugin
-        //git credentialsId: 'techwiz52', url: ${CiGitRepoPath}
+        //git credentialsId: 'techwiz85', url: ${CiGitRepoPath}
         // Requires Pipeline "SCM Step" plugin (installed by default)
         // o properties and methods depend upon installed SCM plugin
         def Scm = checkout(
@@ -99,7 +99,7 @@ pipeline {
             ],
             submoduleCfg: [],
             userRemoteConfigs: [
-              [credentialsId: 'techwiz52st',
+              [credentialsId: 'techwiz85',
                 name: 'origin',
                 url: "${CiGitRepoPath}"
               ]
